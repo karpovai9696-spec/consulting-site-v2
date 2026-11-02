@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://karpovai9696-spec.github.io/consulting-site-v2/sitemap.xml

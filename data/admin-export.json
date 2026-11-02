@@ -1,0 +1,224 @@
+{
+  "exported_at": "2026-11-02T05:40:39Z",
+  "site": {
+    "id": 2,
+    "slug": "consulting",
+    "name": "ГК «Клиники диализа»",
+    "brand": "consulting",
+    "domain": "gk-kd.ru",
+    "tagline": "Консалтинг и управление центрами гемодиализа",
+    "description": "Консалтинговая компания «Клиники диализа»: проектирование, оборудование и запуск центров амбулаторного гемодиализа в России.",
+    "legal_name": "ООО «Консалтинговая компания «Клиники диализа»»",
+    "inn": "1660273895",
+    "ogrn": "1161690112011",
+    "license_number": "",
+    "license_issued_by": "",
+    "license_date": "",
+    "phone": "+7 (843) 204-19-61",
+    "email": "uk.klinika@mail.ru",
+    "address": "420039, Республика Татарстан, г. Казань, ул. Алексея Козина, д. 7, офис 1080",
+    "theme": "mint",
+    "is_active": true,
+    "created_at": "2026-11-01T06:53:11Z",
+    "updated_at": "2026-11-02T05:37:06Z",
+    "version": 2
+  },
+  "items": {
+    "branches": [
+      {
+        "id": 24,
+        "site_id": 2,
+        "type": "branch",
+        "data": {
+          "city": "Казань",
+          "address": "ул. Алексея Козина, д. 7, офис 1080",
+          "phone": "+7 (843) 204-19-61",
+          "email": "uk.klinika@mail.ru",
+          "hours": "Пн–Пт 09:00–18:00",
+          "map_url": "https://yandex.ru/maps/?text=Казань, улица Алексея Козина, 7",
+          "is_active": true
+        },
+        "sort_order": 0,
+        "created_at": "2026-11-01T06:53:11Z",
+        "updated_at": "2026-11-02T05:37:15Z",
+        "version": 2
+      }
+    ],
+    "news": [
+      {
+        "id": 40,
+        "site_id": 2,
+        "type": "news",
+        "data": {
+          "title": "Поздравляем генерального директора с днём рождения",
+          "date": "2020-09-11",
+          "excerpt": "Сегодня празднует свой день рождения генеральный директор ГК «Клиники диализа» Камиль Равилевич Фахрутдинов.",
+          "body": "Коллектив компании поздравляет Камиля Равилевича с днём рождения и желает крепкого здоровья, успехов и новых достижений.",
+          "image_url": "",
+          "published": true,
+          "branch": "Казань"
+        },
+        "sort_order": 4,
+        "created_at": "2026-11-02T05:37:16Z",
+        "updated_at": "2026-11-02T05:37:16Z",
+        "version": 1
+      }
+    ],
+    "vacancies": [
+      {
+        "id": 44,
+        "site_id": 2,
+        "type": "vacancy",
+        "data": {
+          "title": "Медицинская сестра",
+          "city": "Казань",
+          "employment": "Полная занятость, сменный график",
+          "salary": "по договорённости",
+          "description": "Работа в центре амбулаторного гемодиализа.",
+          "requirements": "Медицинское образование, действующий сертификат.",
+          "contact_email": "uk.klinika@mail.ru",
+          "published": true,
+          "branch": "Казань"
+        },
+        "sort_order": 1,
+        "created_at": "2026-11-02T05:37:16Z",
+        "updated_at": "2026-11-02T05:37:16Z",
+        "version": 1
+      }
+    ],
+    "staff": [
+      {
+        "id": 41,
+        "site_id": 2,
+        "type": "staff",
+        "data": {
+          "name": "Фахрутдинов Камиль Равилевич",
+          "role": "Генеральный директор",
+          "branch": "Казань",
+          "phone": "+7 (843) 204-19-61",
+          "email": "uk.klinika@mail.ru",
+          "education": "",
+          "accreditation": "",
+          "photo": ""
+        },
+        "sort_order": 1,
+        "created_at": "2026-11-02T05:37:16Z",
+        "updated_at": "2026-11-02T05:37:16Z",
+        "version": 1
+      },
+      {
+        "id": 42,
+        "site_id": 2,
+        "type": "staff",
+        "data": {
+          "name": "Краснова Ирина Александровна",
+          "role": "Финансовый директор",
+          "branch": "Казань",
+          "phone": "+7 (843) 204-19-62",
+          "email": "uk.klinika@mail.ru",
+          "education": "",
+          "accreditation": "",
+          "photo": ""
+        },
+        "sort_order": 2,
+        "created_at": "2026-11-02T05:37:16Z",
+        "updated_at": "2026-11-02T05:37:16Z",
+        "version": 1
+      },
+      {
+        "id": 43,
+        "site_id": 2,
+        "type": "staff",
+        "data": {
+          "name": "Конюхов Евгений Александрович",
+          "role": "Медицинский директор",
+          "branch": "Казань",
+          "phone": "+7 (843) 204-19-64",
+          "email": "uk.klinika@mail.ru",
+          "education": "",
+          "accreditation": "",
+          "photo": ""
+        },
+        "sort_order": 3,
+        "created_at": "2026-11-02T05:37:16Z",
+        "updated_at": "2026-11-02T05:37:16Z",
+        "version": 1
+      }
+    ],
+    "services": [
+      {
+        "id": 36,
+        "site_id": 2,
+        "type": "service",
+        "data": {
+          "name": "Проектирование центров гемодиализа",
+          "category": "Консалтинг",
+          "description": "Разработка концепции, медицинских и инженерных решений для центров амбулаторного гемодиализа.",
+          "price": "по запросу",
+          "is_active": true
+        },
+        "sort_order": 1,
+        "created_at": "2026-11-02T05:37:16Z",
+        "updated_at": "2026-11-02T05:37:16Z",
+        "version": 1
+      },
+      {
+        "id": 37,
+        "site_id": 2,
+        "type": "service",
+        "data": {
+          "name": "Оснащение оборудованием",
+          "category": "Консалтинг",
+          "description": "Подбор, поставка и ввод в эксплуатацию оборудования для гемодиализа.",
+          "price": "по запросу",
+          "is_active": true
+        },
+        "sort_order": 2,
+        "created_at": "2026-11-02T05:37:16Z",
+        "updated_at": "2026-11-02T05:37:16Z",
+        "version": 1
+      },
+      {
+        "id": 38,
+        "site_id": 2,
+        "type": "service",
+        "data": {
+          "name": "Запуск и сопровождение",
+          "category": "Консалтинг",
+          "description": "Запуск центра, обучение персонала, организационная и медицинская поддержка.",
+          "price": "по запросу",
+          "is_active": true
+        },
+        "sort_order": 3,
+        "created_at": "2026-11-02T05:37:16Z",
+        "updated_at": "2026-11-02T05:37:16Z",
+        "version": 1
+      },
+      {
+        "id": 39,
+        "site_id": 2,
+        "type": "service",
+        "data": {
+          "name": "Государственно-частное партнёрство",
+          "category": "Консалтинг",
+          "description": "Подготовка и сопровождение проектов ГЧП в здравоохранении.",
+          "price": "по запросу",
+          "is_active": true
+        },
+        "sort_order": 4,
+        "created_at": "2026-11-02T05:37:16Z",
+        "updated_at": "2026-11-02T05:37:16Z",
+        "version": 1
+      }
+    ],
+    "settings": {
+      "hero_title": "Консалтинг и управление центрами гемодиализа",
+      "hero_subtitle": "Проектируем, оснащаем и запускаем центры амбулаторного гемодиализа по всей России.",
+      "site_url": "https://karpovai9696-spec.github.io/consulting-site-v2/",
+      "stats": "16 центров|2000 пациентов|12 городов|с 2008 года",
+      "email": "uk.klinika@mail.ru",
+      "geography_cities": "Бугульма|Волжск|Елабуга|Йошкар-Ола|Казань|Лениногорск|Москва|Набережные Челны|Нижневартовск|Нижнекамск|Орёл|Тула",
+      "hero_badge": "ГК «Клиники диализа» · консалтинг"
+    }
+  }
+}
