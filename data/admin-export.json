@@ -1,5 +1,5 @@
 {
-  "exported_at": "2026-11-02T05:40:39Z",
+  "exported_at": "2026-11-02T05:54:40Z",
   "site": {
     "id": 2,
     "slug": "consulting",
@@ -30,18 +30,144 @@
         "site_id": 2,
         "type": "branch",
         "data": {
-          "city": "Казань",
-          "address": "ул. Алексея Козина, д. 7, офис 1080",
-          "phone": "+7 (843) 204-19-61",
-          "email": "uk.klinika@mail.ru",
-          "hours": "Пн–Пт 09:00–18:00",
-          "map_url": "https://yandex.ru/maps/?text=Казань, улица Алексея Козина, 7",
+          "city": "Волжск",
+          "address": "г. Волжск, ул. Зелёная, 4Б",
+          "phone": "+7 (958) 843-20-66",
+          "email": "dialam@list.ru",
+          "hours": "Пн–Сб 07:00–22:00",
+          "map_url": "https://yandex.ru/maps/?text=Волжск, Зелёная 4Б",
           "is_active": true
         },
-        "sort_order": 0,
+        "sort_order": 1,
         "created_at": "2026-11-01T06:53:11Z",
-        "updated_at": "2026-11-02T05:37:15Z",
-        "version": 2
+        "updated_at": "2026-11-02T05:53:21Z",
+        "version": 3
+      },
+      {
+        "id": 47,
+        "site_id": 2,
+        "type": "branch",
+        "data": {
+          "city": "Орёл",
+          "address": "г. Орёл, ул. Ломоносова, д. 6А",
+          "phone": "+7 (4862) 44-31-53",
+          "email": "dialam@list.ru",
+          "hours": "Пн–Сб 06:00–23:00",
+          "map_url": "https://yandex.ru/maps/?text=Орёл, Ломоносова 6А",
+          "is_active": true
+        },
+        "sort_order": 2,
+        "created_at": "2026-11-02T05:53:22Z",
+        "updated_at": "2026-11-02T05:53:22Z",
+        "version": 1
+      },
+      {
+        "id": 48,
+        "site_id": 2,
+        "type": "branch",
+        "data": {
+          "city": "Нижневартовск",
+          "address": "г. Нижневартовск, ул. Интернациональная, д. 34 А/П, строение 2",
+          "phone": "+7 (3466) 21-90-84",
+          "email": "dialam@list.ru",
+          "hours": "Пн–Сб 08:00–04:00",
+          "map_url": "https://yandex.ru/maps/?text=Нижневартовск, Интернациональная 34АП",
+          "is_active": true
+        },
+        "sort_order": 3,
+        "created_at": "2026-11-02T05:53:22Z",
+        "updated_at": "2026-11-02T05:53:22Z",
+        "version": 1
+      },
+      {
+        "id": 49,
+        "site_id": 2,
+        "type": "branch",
+        "data": {
+          "city": "Йошкар-Ола",
+          "address": "г. Йошкар-Ола, ул. Анникова, д. 4А",
+          "phone": "+7 (8362) 46-49-00",
+          "email": "dialam@list.ru",
+          "hours": "Пн–Сб 06:30–20:30",
+          "map_url": "https://yandex.ru/maps/?text=Йошкар-Ола, Анникова 4А",
+          "is_active": true
+        },
+        "sort_order": 4,
+        "created_at": "2026-11-02T05:53:22Z",
+        "updated_at": "2026-11-02T05:53:22Z",
+        "version": 1
+      },
+      {
+        "id": 50,
+        "site_id": 2,
+        "type": "branch",
+        "data": {
+          "city": "Москва · Алтуфьево",
+          "address": "г. Москва, ул. Илимская, д. 9",
+          "phone": "+7 (499) 116-00-83",
+          "email": "info@diamedika.ru",
+          "hours": "по записи",
+          "map_url": "https://yandex.ru/maps/?text=Москва, Илимская 9",
+          "is_active": true
+        },
+        "sort_order": 5,
+        "created_at": "2026-11-02T05:53:22Z",
+        "updated_at": "2026-11-02T05:53:22Z",
+        "version": 1
+      },
+      {
+        "id": 51,
+        "site_id": 2,
+        "type": "branch",
+        "data": {
+          "city": "Москва · Перово",
+          "address": "г. Москва, 1-й проезд Перова Поля, д. 9, стр. 2",
+          "phone": "+7 (499) 948-04-56",
+          "email": "info@diamedika.ru",
+          "hours": "по записи",
+          "map_url": "https://yandex.ru/maps/?text=Москва, 1-й проезд Перова Поля 9с2",
+          "is_active": true
+        },
+        "sort_order": 6,
+        "created_at": "2026-11-02T05:53:22Z",
+        "updated_at": "2026-11-02T05:53:22Z",
+        "version": 1
+      },
+      {
+        "id": 52,
+        "site_id": 2,
+        "type": "branch",
+        "data": {
+          "city": "Москва · Пражская",
+          "address": "г. Москва, Варшавское шоссе, д. 129, корп. 2",
+          "phone": "+7 (499) 290-38-29",
+          "email": "info@diamedika.ru",
+          "hours": "по записи",
+          "map_url": "https://yandex.ru/maps/?text=Москва, Варшавское шоссе 129к2",
+          "is_active": true
+        },
+        "sort_order": 7,
+        "created_at": "2026-11-02T05:53:22Z",
+        "updated_at": "2026-11-02T05:53:22Z",
+        "version": 1
+      },
+      {
+        "id": 53,
+        "site_id": 2,
+        "type": "branch",
+        "data": {
+          "city": "Москва · Шипиловская",
+          "address": "г. Москва, ул. Шипиловская, д. 34, корп. 1",
+          "phone": "+7 (495) 393-28-73",
+          "email": "info@diamedika.ru",
+          "hours": "по записи",
+          "map_url": "https://yandex.ru/maps/?text=Москва, Шипиловская 34к1",
+          "is_active": true
+        },
+        "sort_order": 8,
+        "created_at": "2026-11-02T05:53:22Z",
+        "updated_at": "2026-11-02T05:53:22Z",
+        "version": 1
       }
     ],
     "news": [
@@ -209,16 +335,132 @@
         "created_at": "2026-11-02T05:37:16Z",
         "updated_at": "2026-11-02T05:37:16Z",
         "version": 1
+      },
+      {
+        "id": 58,
+        "site_id": 2,
+        "type": "service",
+        "data": {
+          "name": "Лендинги и сайты-визитки",
+          "category": "Разработка сайтов",
+          "description": "Быстрые и эффектные одностраничные сайты для презентации услуг, продукта или личного бренда. Адаптивная вёрстка и высокая скорость загрузки.",
+          "price": "по запросу",
+          "is_active": true
+        },
+        "sort_order": 10,
+        "created_at": "2026-11-02T05:53:22Z",
+        "updated_at": "2026-11-02T05:53:22Z",
+        "version": 1
+      },
+      {
+        "id": 59,
+        "site_id": 2,
+        "type": "service",
+        "data": {
+          "name": "Веб-приложения (SPA)",
+          "category": "Разработка сайтов",
+          "description": "Одностраничные приложения на Vue 3 или React с продуманной архитектурой, управлением состоянием и удобным интерфейсом.",
+          "price": "по запросу",
+          "is_active": true
+        },
+        "sort_order": 11,
+        "created_at": "2026-11-02T05:53:22Z",
+        "updated_at": "2026-11-02T05:53:22Z",
+        "version": 1
+      },
+      {
+        "id": 60,
+        "site_id": 2,
+        "type": "service",
+        "data": {
+          "name": "Интернет-магазины",
+          "category": "Разработка сайтов",
+          "description": "Каталог, корзина, оформление заказа и подключение оплаты. Магазин, которым удобно пользоваться и легко управлять.",
+          "price": "по запросу",
+          "is_active": true
+        },
+        "sort_order": 12,
+        "created_at": "2026-11-02T05:53:22Z",
+        "updated_at": "2026-11-02T05:53:22Z",
+        "version": 1
+      },
+      {
+        "id": 61,
+        "site_id": 2,
+        "type": "service",
+        "data": {
+          "name": "Доработка и поддержка проектов",
+          "category": "Разработка сайтов",
+          "description": "Разберусь в существующем коде, исправлю ошибки, добавлю новый функционал и возьму проект на регулярную поддержку.",
+          "price": "по запросу",
+          "is_active": true
+        },
+        "sort_order": 13,
+        "created_at": "2026-11-02T05:53:22Z",
+        "updated_at": "2026-11-02T05:53:22Z",
+        "version": 1
+      },
+      {
+        "id": 62,
+        "site_id": 2,
+        "type": "service",
+        "data": {
+          "name": "Адаптивная вёрстка",
+          "category": "Разработка сайтов",
+          "description": "Pixel-perfect вёрстка по макетам Figma. Сайт будет одинаково хорошо выглядеть на телефоне, планшете и десктопе.",
+          "price": "по запросу",
+          "is_active": true
+        },
+        "sort_order": 14,
+        "created_at": "2026-11-02T05:53:22Z",
+        "updated_at": "2026-11-02T05:53:22Z",
+        "version": 1
+      },
+      {
+        "id": 63,
+        "site_id": 2,
+        "type": "service",
+        "data": {
+          "name": "Интеграция с API / CRM",
+          "category": "Разработка сайтов",
+          "description": "Подключение платёжных систем, CRM, карт, служб доставки и других сторонних сервисов к вашему сайту или приложению.",
+          "price": "по запросу",
+          "is_active": true
+        },
+        "sort_order": 15,
+        "created_at": "2026-11-02T05:53:22Z",
+        "updated_at": "2026-11-02T05:53:22Z",
+        "version": 1
+      },
+      {
+        "id": 64,
+        "site_id": 2,
+        "type": "service",
+        "data": {
+          "name": "SEO-оптимизация",
+          "category": "Разработка сайтов",
+          "description": "Техническая оптимизация: мета-теги, семантическая разметка, скорость загрузки — чтобы сайт лучше ранжировался в поиске.",
+          "price": "по запросу",
+          "is_active": true
+        },
+        "sort_order": 16,
+        "created_at": "2026-11-02T05:53:22Z",
+        "updated_at": "2026-11-02T05:53:22Z",
+        "version": 1
       }
     ],
     "settings": {
       "hero_title": "Консалтинг и управление центрами гемодиализа",
       "hero_subtitle": "Проектируем, оснащаем и запускаем центры амбулаторного гемодиализа по всей России.",
       "site_url": "https://karpovai9696-spec.github.io/consulting-site-v2/",
-      "stats": "16 центров|2000 пациентов|12 городов|с 2008 года",
+      "stats": "8 центров|5 городов|2 бренда|с 2008 года",
       "email": "uk.klinika@mail.ru",
-      "geography_cities": "Бугульма|Волжск|Елабуга|Йошкар-Ола|Казань|Лениногорск|Москва|Набережные Челны|Нижневартовск|Нижнекамск|Орёл|Тула",
-      "hero_badge": "ГК «Клиники диализа» · консалтинг"
+      "geography_cities": "Волжск|Орёл|Нижневартовск|Йошкар-Ола|Москва · Алтуфьево|Москва · Перово|Москва · Пражская|Москва · Шипиловская",
+      "hero_badge": "ГК «Клиники диализа» · консалтинг",
+      "office_address": "420039, Республика Татарстан, г. Казань, ул. Алексея Козина, д. 7, офис 1080",
+      "office_hours": "Пн–Пт 09:00–18:00",
+      "portfolio_url": "https://karpovai9696-spec.github.io/portfolio-website/",
+      "developer_name": "Михаил Карпов"
     }
   }
 }

@@ -36,11 +36,14 @@ ADMIN_PUBLIC_URL=https://127.0.0.1:18090/api/public/sites/consulting.json \
 
 - название, реквизиты, ИНН, ОГРН, телефон, e-mail, адрес;
 - офис в Казани;
-- четыре услуги;
+- 8 центров «Диалам+» и «Диамедика» в пяти городах;
+- 4 консалтинговые услуги;
+- 7 услуг разработчика с визитки Михаила Карпова;
 - новость;
 - три руководителя;
 - вакансия;
-- настройки `hero_title`, `hero_subtitle`, `stats`, `geography_cities`;
+- настройки `hero_title`, `hero_subtitle`, `stats`, `geography_cities`,
+  `office_address`, `office_hours`, `portfolio_url`, `developer_name`;
 - `site_url` — адрес этой версии.
 
 ## Live

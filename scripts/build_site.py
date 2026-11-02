@@ -25,8 +25,14 @@ ADDRESS = SITE.get("address") or "г. Казань, ул. Алексея Коз�
 INN = SITE.get("inn", "")
 OGRN = SITE.get("ogrn", "")
 LEGAL = SITE.get("legal_name", BRAND)
-STATS = [x.strip() for x in SET.get("stats", "16 центров|2000 пациентов|12 городов|с 2008 года").split("|") if x.strip()]
-CITIES = [x.strip() for x in SET.get("geography_cities", "Казань").split("|") if x.strip()]
+STATS = [x.strip() for x in SET.get("stats", "8 центров|5 городов|2 бренда|с 2008 года").split("|") if x.strip()]
+OFFICE_ADDRESS = SET.get("office_address") or ADDRESS
+OFFICE_HOURS = SET.get("office_hours") or "Пн–Пт 09:00–18:00"
+PORTFOLIO_URL = SET.get("portfolio_url") or "https://karpovai9696-spec.github.io/portfolio-website/"
+DEVELOPER_NAME = SET.get("developer_name") or "Михаил Карпов"
+CONSULTING_SERVICES = [x for x in SERVICES if x["data"].get("category") != "Разработка сайтов"]
+DEV_SERVICES = [x for x in SERVICES if x["data"].get("category") == "Разработка сайтов"]
+CENTER_CARDS = [x["data"] for x in BRANCHES if x["data"].get("is_active", True)]
 
 def esc(v):
     return H.escape(str(v or ""))
@@ -85,12 +91,28 @@ def stat_cards():
         out += f'<div class="stat-item"><strong>{esc(parts[0])}</strong><span>{esc(parts[1] if len(parts)>1 else "")}</span></div>'
     return out + '</div>'
 
-def service_cards():
+def service_cards(items=None):
     out = '<div class="service-grid">'
-    for item in SERVICES:
+    for item in (items if items is not None else CONSULTING_SERVICES):
         d = item["data"]
         out += f'<article class="service-card"><h3>{esc(d.get("name"))}</h3><p>{esc(d.get("description"))}</p><a href="uslugi.html">Подробнее →</a></article>'
     return out + '</div>'
+
+def developer_section():
+    if not DEV_SERVICES:
+        return ""
+    cards = "".join(
+        f'<article class="dev-card glass-card"><h3>{esc(i["data"].get("name"))}</h3><p>{esc(i["data"].get("description"))}</p></article>'
+        for i in DEV_SERVICES
+    )
+    return f'''<section class="home-section" id="developer"><div class="section-heading"><p class="eyebrow">РАЗРАБОТКА САЙТОВ</p><h2 class="section-title">Мои услуги</h2></div><p class="section-sub">Услуги {esc(DEVELOPER_NAME)} — разработка сайтов, веб-приложений и интеграций.</p><div class="dev-grid">{cards}</div><p class="section-more"><a href="{esc(PORTFOLIO_URL)}" target="_blank" rel="noopener noreferrer">Смотреть портфолио →</a></p></section>'''
+
+def center_cards():
+    out = '<div class="center-grid">'
+    for c in CENTER_CARDS:
+        out += f'''<article class="center-card center-card--compact glass-card"><div class="center-card__body"><p class="center-card__metro">{esc(c.get("city"))}</p><p class="center-card__addr">{esc(c.get("address"))}</p><a href="tel:{esc(c.get("phone"))}" class="center-card__phone">{esc(c.get("phone"))}</a><p class="center-card__hours">{esc(c.get("hours"))}</p><a href="{esc(c.get("map_url"))}" class="center-card__link" target="_blank" rel="noopener noreferrer">На карте →</a></div></article>'''
+    return out + '</div>'
+
 
 def news_cards(limit=None):
     rows = NEWS[:limit] if limit else NEWS
@@ -103,10 +125,11 @@ def news_cards(limit=None):
 # ---------------- index ----------------
 hero_title = SET.get("hero_title") or SITE.get("tagline") or "Консалтинг и управление центрами гемодиализа"
 hero_sub = SET.get("hero_subtitle") or SITE.get("description") or ""
-index_main = f'''<section class="hero"><div class="hero-content"><span class="consult-kicker">{esc(SET.get("hero_badge", "ГК «Клиники диализа» · консалтинг"))}</span><h1 class="hero-title">{esc(hero_title)}</h1><p class="hero-lead">{esc(hero_sub)}</p><div class="hero-actions"><a href="kontakty.html#form" class="btn btn--dark hero-btn"><span>Обсудить проект</span><svg class="icon icon--arrow-up-right" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg></a></div><div class="hero-note">Или позвоните: <a href="tel:{TEL}">{esc(PHONE)}</a></div></div><div class="hero-media"><div class="hero-photo-wrap"><img src="assets/img/hero.jpg" width="1600" height="1065" alt="Эксперты консалтинговой компании «Клиники диализа»" class="hero-photo" loading="eager" fetchpriority="high"></div><div class="hours-card glass-card"><p class="hours-card__label">Офис в Казани</p><p class="hours-card__days">{esc(BRANCH.get("address", "ул. Алексея Козина, д. 7"))}</p><p class="hours-card__time">{esc(BRANCH.get("hours", "Пн–Пт 09:00–18:00"))}</p></div></div></section>{stat_cards()}
+index_main = f'''<section class="hero"><div class="hero-content"><span class="consult-kicker">{esc(SET.get("hero_badge", "ГК «Клиники диализа» · консалтинг"))}</span><h1 class="hero-title">{esc(hero_title)}</h1><p class="hero-lead">{esc(hero_sub)}</p><div class="hero-actions"><a href="kontakty.html#form" class="btn btn--dark hero-btn"><span>Обсудить проект</span><svg class="icon icon--arrow-up-right" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg></a></div><div class="hero-note">Или позвоните: <a href="tel:{TEL}">{esc(PHONE)}</a></div></div><div class="hero-media"><div class="hero-photo-wrap"><img src="assets/img/hero.jpg" width="1600" height="1065" alt="Эксперты консалтинговой компании «Клиники диализа»" class="hero-photo" loading="eager" fetchpriority="high"></div><div class="hours-card glass-card"><p class="hours-card__label">Офис в Казани</p><p class="hours-card__days">{esc(OFFICE_ADDRESS)}</p><p class="hours-card__time">{esc(OFFICE_HOURS)}</p></div></div></section>{stat_cards()}
 <section class="home-section" id="about"><div class="section-heading"><p class="eyebrow">О КОМПАНИИ</p><h2 class="section-title">Опыт, который работает на результат</h2></div><div class="content-card glass-card"><p>Консалтинговая компания «Клиники диализа» обеспечивает стабильную работу центров амбулаторного гемодиализа по всей России. Первые центры в Нижнекамске и Бугульме открылись в 2008 году.</p><p>Сегодня компания проектирует, оснащает и запускает специализированные центры, сопровождает проекты государственно-частного партнёрства и помогает медицинским организациям выстраивать устойчивую операционную модель.</p><p><a href="about.html">Подробнее о компании →</a></p></div></section>
 <section class="home-section"><div class="section-heading"><p class="eyebrow">УСЛУГИ</p><h2 class="section-title">Полный цикл запуска центра</h2></div>{service_cards()}</section>
-<section class="home-section"><div class="section-heading"><p class="eyebrow">ГЕОГРАФИЯ</p><h2 class="section-title">Центры в 12 городах России</h2></div><div class="geo-grid">{''.join(f'<a href="geografiya.html" class="geo-card glass-card"><span>{esc(c)}</span><small>Центр гемодиализа</small></a>' for c in CITIES)}</div><p class="section-more"><a href="geografiya.html">Смотреть географию →</a></p></section>
+{developer_section()}
+<section class="home-section"><div class="section-heading"><p class="eyebrow">ЦЕНТРЫ</p><h2 class="section-title">{len(CENTER_CARDS)} центров «Диалам+» и «Диамедика»</h2></div><p class="section-sub">Центры амбулаторного гемодиализа в пяти городах России.</p>{center_cards()}<p class="section-more"><a href="geografiya.html">Все центры и телефоны →</a></p></section>
 <section class="home-section"><div class="section-heading"><p class="eyebrow">ПРЕСС-ЦЕНТР</p><h2 class="section-title">Новости компании</h2></div>{news_cards(2)}<p class="section-more"><a href="press.html">Все новости →</a></p></section>
 <section class="home-section" id="form"><div class="form-card glass-card"><div><p class="eyebrow">СОТРУДНИЧЕСТВО</p><h2 class="section-title">Расскажите о вашем проекте</h2><p class="muted">Оставьте контакты — обсудим задачи и предложим решение.</p></div><form id="appointment-form" class="simple-form" novalidate><label class="field"><span>Ваше имя</span><input class="input" type="text" name="name" autocomplete="name" required></label><label class="field"><span>Телефон</span><input class="input" type="tel" name="phone" inputmode="tel" autocomplete="tel" required></label><label class="field field--full"><span>Комментарий</span><textarea class="input" name="message" rows="3"></textarea></label><div class="consent"><input type="checkbox" id="form-consent" name="consent" required><label for="form-consent">Согласен с обработкой персональных данных</label><a href="dokumenty.html" class="consent__link">Политика</a></div><button type="submit" class="btn btn--primary">Отправить заявку</button><p class="form-note">Заявка откроется в почтовом клиенте. Если он недоступен — позвоните <a href="tel:{TEL}">{esc(PHONE)}</a>.</p><p class="form-alert" id="form-error" role="alert" hidden>Укажите имя, корректный телефон и согласие.</p><p class="form-success" id="form-success" role="status" aria-live="polite" hidden></p></form></div></section>'''
 title = f"{BRAND} — консалтинг и управление центрами гемодиализа"
@@ -117,20 +140,21 @@ about_main = f'''{breadcrumbs("О компании")}<h1 class="page-title">О �
 (ROOT / "about.html").write_text(shell(f"О компании — {BRAND}", "О консалтинговой компании «Клиники диализа»: опыт, услуги и реквизиты.", about_main, "about.html"), encoding="utf-8")
 
 # ---------------- services ----------------
-services_detail = "".join(f'<section class="content-card glass-card"><h2 class="content-card__title">{esc(i["data"].get("name"))}</h2><p>{esc(i["data"].get("description"))}</p><p><strong>Стоимость:</strong> {esc(i["data"].get("price"))}</p></section>' for i in SERVICES)
-services_main = f'''{breadcrumbs("Услуги")}<h1 class="page-title">Услуги</h1><p class="page-lead">Консалтинг для медицинских организаций и проектов в сфере гемодиализа.</p><div class="content-stack">{services_detail}</div>'''
-(ROOT / "uslugi.html").write_text(shell(f"Услуги — {BRAND}", "Консалтинговые услуги: проектирование, оснащение, запуск и сопровождение центров гемодиализа.", services_main, "uslugi.html"), encoding="utf-8")
+consulting_detail = "".join(f'<section class="content-card glass-card"><h2 class="content-card__title">{esc(i["data"].get("name"))}</h2><p>{esc(i["data"].get("description"))}</p><p><strong>Стоимость:</strong> {esc(i["data"].get("price"))}</p></section>' for i in CONSULTING_SERVICES)
+dev_detail = "".join(f'<section class="content-card glass-card"><h2 class="content-card__title">{esc(i["data"].get("name"))}</h2><p>{esc(i["data"].get("description"))}</p></section>' for i in DEV_SERVICES)
+services_main = f'''{breadcrumbs("Услуги")}<h1 class="page-title">Услуги</h1><p class="page-lead">Консалтинг для медицинских организаций и разработка цифровых продуктов.</p><h2 class="section-title">Консалтинг и управление центрами</h2><div class="content-stack">{consulting_detail}</div><h2 class="section-title section-title--spaced" id="developer">Разработка сайтов и веб-приложений</h2><p class="section-sub">Услуги {esc(DEVELOPER_NAME)}. <a href="{esc(PORTFOLIO_URL)}" target="_blank" rel="noopener noreferrer">Портфолио →</a></p><div class="content-stack">{dev_detail}</div>'''
+(ROOT / "uslugi.html").write_text(shell(f"Услуги — {BRAND}", "Консалтинг, разработка сайтов, веб-приложений и интеграций.", services_main, "uslugi.html"), encoding="utf-8")
 
 # ---------------- geography ----------------
-geo_main = f'''{breadcrumbs("География")}<h1 class="page-title">География деятельности</h1><p class="page-lead">Центры амбулаторного гемодиализа в городах России.</p><div class="geo-grid">{''.join(f'<article class="geo-card glass-card"><span>{esc(c)}</span><small>Центр гемодиализа</small></article>' for c in CITIES)}</div><div class="content-card glass-card"><h2 class="content-card__title">Офис компании</h2><p>{esc(ADDRESS)}</p><p><a href="{esc(BRANCH.get("map_url", ""))}" target="_blank" rel="noopener noreferrer">Открыть на карте →</a></p></div>'''
-(ROOT / "geografiya.html").write_text(shell(f"География — {BRAND}", "География центров гемодиализа и офис консалтинговой компании «Клиники диализа».", geo_main, "geografiya.html"), encoding="utf-8")
+geo_main = f'''{breadcrumbs("География")}<h1 class="page-title">География деятельности</h1><p class="page-lead">8 центров амбулаторного гемодиализа «Диалам+» и «Диамедика» в пяти городах России.</p>{center_cards()}<div class="content-card glass-card"><h2 class="content-card__title">Офис компании</h2><p>{esc(OFFICE_ADDRESS)}</p><p>{esc(OFFICE_HOURS)}</p><p><a href="https://yandex.ru/maps/?text={quote(OFFICE_ADDRESS)}" target="_blank" rel="noopener noreferrer">Открыть офис на карте →</a></p></div>'''
+(ROOT / "geografiya.html").write_text(shell(f"География — {BRAND}", "8 центров гемодиализа «Диалам+» и «Диамедика» и офис консалтинговой компании в Казани.", geo_main, "geografiya.html"), encoding="utf-8")
 
 # ---------------- press ----------------
 press_main = f'''{breadcrumbs("Пресс-центр")}<h1 class="page-title">Пресс-центр</h1><p class="page-lead">Новости компании и полезные материалы.</p>{news_cards()}'''
 (ROOT / "press.html").write_text(shell(f"Пресс-центр — {BRAND}", "Новости и материалы ГК «Клиники диализа».", press_main, "press.html"), encoding="utf-8")
 
 # ---------------- contacts ----------------
-contacts_main = f'''{breadcrumbs("Контакты")}<h1 class="page-title">Контакты</h1><p class="page-lead">Свяжитесь с нами, чтобы обсудить проект.</p><div class="content-stack"><section class="content-card glass-card"><h2 class="content-card__title">Офис в Казани</h2><p>{esc(ADDRESS)}</p><p>Телефон: <a href="tel:{TEL}">{esc(PHONE)}</a><br>E-mail: <a href="mailto:{esc(EMAIL)}">{esc(EMAIL)}</a></p><p>{esc(BRANCH.get("hours", "Пн–Пт 09:00–18:00"))}</p><p><a href="{esc(BRANCH.get("map_url", ""))}" target="_blank" rel="noopener noreferrer">Открыть на Яндекс.Картах →</a></p></section><section class="content-card glass-card" id="form"><h2 class="content-card__title">Написать нам</h2><form id="appointment-form" class="simple-form" novalidate><label class="field"><span>Ваше имя</span><input class="input" type="text" name="name" required></label><label class="field"><span>Телефон</span><input class="input" type="tel" name="phone" required></label><label class="field field--full"><span>Комментарий</span><textarea class="input" name="message" rows="3"></textarea></label><div class="consent"><input type="checkbox" id="form-consent" name="consent" required><label for="form-consent">Согласен с обработкой персональных данных</label><a href="dokumenty.html" class="consent__link">Политика</a></div><button type="submit" class="btn btn--primary">Отправить</button><p class="form-note">Заявка откроется в почтовом клиенте. Если он недоступен — позвоните <a href="tel:{TEL}">{esc(PHONE)}</a>.</p><p class="form-alert" id="form-error" role="alert" hidden>Укажите имя, корректный телефон и согласие.</p><p class="form-success" id="form-success" role="status" aria-live="polite" hidden></p></form></section></div>'''
+contacts_main = f'''{breadcrumbs("Контакты")}<h1 class="page-title">Контакты</h1><p class="page-lead">Свяжитесь с нами, чтобы обсудить проект.</p><div class="content-stack"><section class="content-card glass-card"><h2 class="content-card__title">Офис в Казани</h2><p>{esc(OFFICE_ADDRESS)}</p><p>Телефон: <a href="tel:{TEL}">{esc(PHONE)}</a><br>E-mail: <a href="mailto:{esc(EMAIL)}">{esc(EMAIL)}</a></p><p>{esc(OFFICE_HOURS)}</p><p><a href="https://yandex.ru/maps/?text={quote(OFFICE_ADDRESS)}" target="_blank" rel="noopener noreferrer">Открыть на Яндекс.Картах →</a></p></section><section class="content-card glass-card"><h2 class="content-card__title">Центры «Диалам+» и «Диамедика»</h2><p>Восемь центров амбулаторного гемодиализа в пяти городах России.</p>{center_cards()}</section><section class="content-card glass-card" id="form"><h2 class="content-card__title">Написать нам</h2><form id="appointment-form" class="simple-form" novalidate><label class="field"><span>Ваше имя</span><input class="input" type="text" name="name" required></label><label class="field"><span>Телефон</span><input class="input" type="tel" name="phone" required></label><label class="field field--full"><span>Комментарий</span><textarea class="input" name="message" rows="3"></textarea></label><div class="consent"><input type="checkbox" id="form-consent" name="consent" required><label for="form-consent">Согласен с обработкой персональных данных</label><a href="dokumenty.html" class="consent__link">Политика</a></div><button type="submit" class="btn btn--primary">Отправить</button><p class="form-note">Заявка откроется в почтовом клиенте. Если он недоступен — позвоните <a href="tel:{TEL}">{esc(PHONE)}</a>.</p><p class="form-alert" id="form-error" role="alert" hidden>Укажите имя, корректный телефон и согласие.</p><p class="form-success" id="form-success" role="status" aria-live="polite" hidden></p></form></section></div>'''
 (ROOT / "kontakty.html").write_text(shell(f"Контакты — {BRAND}", "Контакты консалтинговой компании «Клиники диализа» в Казани.", contacts_main, "kontakty.html"), encoding="utf-8")
 
 # ---------------- leadership ----------------
