@@ -105,7 +105,7 @@ def developer_section():
         f'<article class="dev-card glass-card"><h3>{esc(i["data"].get("name"))}</h3><p>{esc(i["data"].get("description"))}</p></article>'
         for i in DEV_SERVICES
     )
-    return f'''<section class="home-section" id="developer"><div class="section-heading"><p class="eyebrow">РАЗРАБОТКА САЙТОВ</p><h2 class="section-title">Мои услуги</h2></div><p class="section-sub">Услуги {esc(DEVELOPER_NAME)} — разработка сайтов, веб-приложений и интеграций.</p><div class="dev-grid">{cards}</div><p class="section-more"><a href="{esc(PORTFOLIO_URL)}" target="_blank" rel="noopener noreferrer">Смотреть портфолио →</a></p></section>'''
+    return f'''<section class="home-section" id="developer"><div class="section-heading"><p class="eyebrow">РАЗРАБОТКА САЙТОВ</p><h2 class="section-title">Услуги {esc(DEVELOPER_NAME)}</h2></div><p class="section-sub">Разработка сайтов, веб-приложений и интеграций.</p><div class="dev-grid">{cards}</div><p class="section-more"><a href="{esc(PORTFOLIO_URL)}" target="_blank" rel="noopener noreferrer">Смотреть портфолио →</a></p></section>'''
 
 def center_cards():
     out = '<div class="center-grid">'
@@ -142,7 +142,7 @@ about_main = f'''{breadcrumbs("О компании")}<h1 class="page-title">О �
 # ---------------- services ----------------
 consulting_detail = "".join(f'<section class="content-card glass-card"><h2 class="content-card__title">{esc(i["data"].get("name"))}</h2><p>{esc(i["data"].get("description"))}</p><p><strong>Стоимость:</strong> {esc(i["data"].get("price"))}</p></section>' for i in CONSULTING_SERVICES)
 dev_detail = "".join(f'<section class="content-card glass-card"><h2 class="content-card__title">{esc(i["data"].get("name"))}</h2><p>{esc(i["data"].get("description"))}</p></section>' for i in DEV_SERVICES)
-services_main = f'''{breadcrumbs("Услуги")}<h1 class="page-title">Услуги</h1><p class="page-lead">Консалтинг для медицинских организаций и разработка цифровых продуктов.</p><h2 class="section-title">Консалтинг и управление центрами</h2><div class="content-stack">{consulting_detail}</div><h2 class="section-title section-title--spaced" id="developer">Разработка сайтов и веб-приложений</h2><p class="section-sub">Услуги {esc(DEVELOPER_NAME)}. <a href="{esc(PORTFOLIO_URL)}" target="_blank" rel="noopener noreferrer">Портфолио →</a></p><div class="content-stack">{dev_detail}</div>'''
+services_main = f'''{breadcrumbs("Услуги")}<h1 class="page-title">Услуги</h1><p class="page-lead">Консалтинг для медицинских организаций и разработка цифровых продуктов.</p><h2 class="section-title">Консалтинг и управление центрами</h2><div class="content-stack">{consulting_detail}</div><h2 class="section-title section-title--spaced" id="developer">Услуги {esc(DEVELOPER_NAME)}</h2><p class="section-sub">Разработка сайтов, веб-приложений и интеграций. <a href="{esc(PORTFOLIO_URL)}" target="_blank" rel="noopener noreferrer">Портфолио →</a></p><div class="content-stack">{dev_detail}</div>'''
 (ROOT / "uslugi.html").write_text(shell(f"Услуги — {BRAND}", "Консалтинг, разработка сайтов, веб-приложений и интеграций.", services_main, "uslugi.html"), encoding="utf-8")
 
 # ---------------- geography ----------------
